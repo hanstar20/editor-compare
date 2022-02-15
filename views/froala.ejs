@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Froala – Document editor</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <!-- Froala Editor CDN URL(CSS)-->
+    <link href="/scripts/froala-editor/css/froala_editor.pkgd.min.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="/scripts/froala-editor/js/froala_editor.pkgd.min.js"></script>
+    <!-- jquery import -->
+
+</head>
+<body>
+<h1> Froala Editor </h1>
+<!-- TOAST UI Editor 생성 JavaScript 코드 -->
+<!-- TOAST UI Editor 생성 JavaScript 코드 -->
+
+<h2> Edit Mode </h2>
+<div id="example">
+    <h3>Markdown support makes WYSIWYG HTML editing awesome.</h3>
+    <p>Markdown plugin in Froala editor provides flexible rich text and markdown content creation options for authors, and also provides robust, reliable markdown output for developer projects.</p>
+</div>
+
+<h2> Read Only Mode </h2>
+<div id="example2" contenteditable="false">
+    <h3>Markdown support makes WYSIWYG HTML editing awesome.</h3>
+    <p>Markdown plugin in Froala editor provides flexible rich text and markdown content creation options for authors, and also provides robust, reliable markdown output for developer projects.</p>
+</div>
+
+<div>
+    <h2> HTML return check btn</h2>
+    <button id="btn">
+        버튼
+    </button>
+</div>
+
+<script>
+  var editor = new FroalaEditor('#example')
+  var editor2 = new FroalaEditor('#example2', {} ,function () {
+    // read only mode
+    editor2.edit.off();
+  })
+
+  document.getElementById('btn').addEventListener('click', function (){
+    console.log(editor.html.get())
+  })
+
+  document.getElementById('example').addEventListener('keydown', function (){
+    console.log("키보드 입력중")
+  })
+
+</script>
+</body>
+</html>
+
