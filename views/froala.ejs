@@ -6,6 +6,8 @@
     <title>Froala – Document editor</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
 
+    <link rel="stylesheet" href="/public/stylesheets/froala.css">
+
     <!-- Include Editor style.-->
     <link rel="stylesheet" type="text/css" href="/scripts/froala-editor/css/froala_editor.pkgd.min.css"  />
 
@@ -17,8 +19,12 @@
     <link rel="stylesheet" type="text/css" href="/scripts/froala-editor/css/plugins/table.min.css" />
 
     <!-- Include Editor Plugins.-->
-    <!--Table Plugins-->
+    <!--Table Plugin-->
     <script type="text/javascript" src="/scripts/froala-editor/js/plugins/table.min.js"></script>
+    <!--Word Paste Plugin-->
+    <script type="text/javascript" src="/scripts/froala-editor/js/plugins/word_paste.min.js"></script>
+
+
 
 
 
@@ -38,13 +44,15 @@
     <p>Markdown plugin in Froala editor provides flexible rich text and markdown content creation options for authors, and also provides robust, reliable markdown output for developer projects.</p>
 </div>
 
-<div id="froala3">
-    <div><h1>김민선</h1><h2>김민선</h2><h3>김민선</h3><h4>김민선</h4><h5>김민선</h5><h6>김민선</h6>김민선\n**김민선**\n*김민선*\n<span style=\"color: #a1b56c\">김민선</span>\n~~김민선~~</div>\n<p>***<blockquote>김민선</blockquote><ul><li>김민선</li></ul><ol><li>김민선</li></ol><ul><li class=\"task-list-item\" data-task>김민선</li><li class=\"task-list-item checked\" data-task data-task-checked>김민선</li></ul></p>\n<p><a href=\"www.naver.com\">네이버</a><br>\n<img src=\"data:image/png;base64,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\" alt=\"\" /></p>
+<button type='button' id="modal_btn">모달창아 나와랏</button>
+<div class="black_bg"></div>
+<div class="modal_wrap">
+    <div class="modal_close"><a href="#">close</a></div>
+    <div>
+        <div id="froala3"></div>
+    </div>
 </div>
 
-<div id="froala4">
-    <h1>김민선</h1>\n<h2>김민선</h2>\n<h3>김민선</h3>\n<h4>김민선</h4>\n<h5>김민선</h5>\n<h6>김민선</h6>\n<p>김민선</p>\n<p><strong>김민선</strong><br>\n<em>김민선</em><br>\n<span style=\"color: #7cafc2\">김민선</span><br>\n<del>김민선</del></p>\n<hr />\n<blockquote>\n</blockquote>\n<ul>\n<li></li>\n</ul>\n<ol>\n<li></li>\n</ol>\n<ul>\n<li class=\"task-list-item\" data-task=\"\">\n<p></p>\n</li>\n<li class=\"task-list-item checked\" data-task=\"\" data-task-checked=\"\">\n<p></p>\n</li>\n</ul>\n<p><img src=\"data:image/png;base64,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\" alt=\"\" /><br>\n<a href=\"www.naver.com\">네이버</a></p>\n<table>\n<thead>\n<tr>\n<th></th>\n<th></th>\n<th></th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td></td>\n<td></td>\n<td></td>\n</tr>\n<tr>\n<td></td>\n<td></td>\n<td></td>\n</tr>\n</tbody>\n</table>
-</div>
 
 <div>
     <h2> HTML return check btn</h2>
@@ -54,11 +62,75 @@
 </div>
 
 <script>
+  // define Icon
+  FroalaEditor.DefineIcon('checkboxIcon', { SRC: '/public/images/checkbox.png', ALT: 'Image button', template: 'image'});
+  FroalaEditor.RegisterCommand('checkboxButton', {
+    title: 'checkbox',
+    icon: 'checkboxIcon',
+    focus: true,
+    undo: true,
+    refreshAfterCallback: true,
+    callback: function () {
+      this.html.insert('<input type="checkbox" >');
+      this.undo.saveStep();
+    }
+  })
+
   <!-- Initialize the editor. -->
   var editor = new FroalaEditor('#froala', {
+    // Set custom buttons.
+    toolbarButtons: {
+      // Key represents the more button from the toolbar.
+      moreText: {
+        // List of buttons used in the  group.
+        buttons: ['italic', 'bold',  'underline', 'strikeThrough', 'subscript', 'superscript', 'fontFamily', 'fontSize', 'textColor', 'backgroundColor', 'inlineClass', 'inlineStyle', 'clearFormatting'],
+
+        // Alignment of the group in the toolbar.
+        align: 'left',
+
+        // By default, 3 buttons are shown in the main toolbar. The rest of them are available when using the more button.
+        buttonsVisible: 4
+      },
+
+
+      moreParagraph: {
+        buttons: ['alignLeft', 'alignCenter', 'formatOLSimple', 'alignRight', 'alignJustify', 'formatOL', 'formatUL', 'paragraphFormat', 'paragraphStyle', 'lineHeight', 'outdent', 'indent', 'quote'],
+        align: 'left',
+        buttonsVisible: 4
+      },
+
+      moreRich: {
+        buttons: ['checkboxButton', 'insertLink', 'insertImage', 'insertVideo', 'insertTable', 'emoticons', 'fontAwesome', 'specialCharacters', 'embedly', 'insertFile', 'insertHR'],
+        align: 'left',
+        buttonsVisible: 3
+      },
+
+      moreMisc: {
+        buttons: ['undo', 'redo', 'fullscreen', 'print', 'getPDF', 'spellChecker', 'selectAll', 'html', 'help'],
+        align: 'right',
+        buttonsVisible: 2
+      }
+    },
+
+
+    // Options setting
     height: 500,
-    heightMax: 500
+    heightMax: 500,
+
+    // Word Paste Plugin Options
+    wordPasteModal: false,
+    wordPasteKeepFormatting: false,
+
+
+    // Events setting
+    events:{
+
+
+    }
   }, function() {
+    // Methods Setting
+    editor.html.set('');
+
   })
 
   var editor2 = new FroalaEditor('#froala2', {
@@ -70,7 +142,7 @@
 
     // height setting
     height: 500,
-    heightMax: 500
+    heightMax: 500,
 
   } ,function () {
     // read only mode
@@ -81,21 +153,15 @@
   })
 
   var editor3 = new FroalaEditor('#froala3', {
-  }, function() {
-  })
 
-  var editor4 = new FroalaEditor('#froala4', {
-    // bottom toolbar hide
-    toolbarBottom: true,
+    // height setting
+    height: 500,
+    heightMax: 500,
 
-    // Characters count hide
-    charCounterCount: false
+    placeholderText: '여기에 입력하세요...'
+
   } ,function () {
-    // read only mode
-    editor4.edit.off();
 
-    // toolbar hide
-    editor4.toolbar.hide();
   })
 
   document.getElementById('btn').addEventListener('click', function (){
@@ -105,6 +171,22 @@
   document.getElementById('froala').addEventListener('keydown', function (){
     console.log("키보드 입력중")
   })
+
+  window.onload = function() {
+
+    function onClick() {
+      document.querySelector('.modal_wrap').style.display ='block';
+      document.querySelector('.black_bg').style.display ='block';
+    }
+    function offClick() {
+      document.querySelector('.modal_wrap').style.display ='none';
+      document.querySelector('.black_bg').style.display ='none';
+    }
+
+    document.getElementById('modal_btn').addEventListener('click', onClick);
+    document.querySelector('.modal_close').addEventListener('click', offClick);
+
+  };
 
 </script>
 </body>
